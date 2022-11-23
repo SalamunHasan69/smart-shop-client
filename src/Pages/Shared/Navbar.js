@@ -9,7 +9,7 @@ const Navbar = () => {
         <ul className='items-stretch hidden space-x-3 md:flex'>
           <li className='flex'>
             <NavLink
-              to='/'
+              to='/home'
               className={({ isActive }) =>
                 isActive
                   ? 'text-primary flex items-center px-4 -mb-1 border-b-2 dark:border-transparent'
@@ -40,7 +40,7 @@ const Navbar = () => {
           <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
             <li>
               <NavLink
-                to='/'
+                to='/home'
                 className={({ isActive }) =>
                   isActive
                     ? 'text-primary flex items-center px-4 -mb-1 border-b-2 dark:border-transparent'
