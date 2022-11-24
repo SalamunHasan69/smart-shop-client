@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
 
 const Navbar = () => {
+
+  const { user, logout } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logout()
+      .then(() => { })
+      .catch(error => console.error(error));
+  };
 
   return (
     <div className="navbar px-10">
       <div className="lg:container flex justify-around h-16 mx-auto">
+        <div className='items-stretch hidden md:flex'>
+          {
+            user?.uid ?
+              <>
+                <button onClick={handleLogOut} className='btn btn-outline btn-primary'>Log out</button>
+              </>
+              :
+              <>
+                <button className="btn btn-primary mr-1"><Link to='/login'>Log in</Link></button>
+                <button className="btn btn-outline btn-primary"><Link to='/signup'>Sign up</Link></button>
+              </>
+          }
+        </div>
         <ul className='items-stretch hidden space-x-3 md:flex'>
           <li className='flex'>
             <NavLink
@@ -62,6 +84,10 @@ const Navbar = () => {
               </NavLink>
             </li>
           </ul>
+          <div>
+            <button className="btn btn-primary mr-1"><Link to='/login'>Log in</Link></button>
+            <button className="btn btn-outline btn-primary"><Link to='/signup'>Sign up</Link></button>
+          </div>
         </div>
       </div>
       <div className="navbar-end">

@@ -1,32 +1,64 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
+import { useForm } from 'react-hook-form';
+import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
+
+  const { register, formState: { errors }, handleSubmit } = useForm();
+  const { signIn } = useContext(AuthContext);
+  const [loginError, setLoginError] = useState('');
+
+  const handleLogin = data => {
+    console.log(data);
+    setLoginError('')
+    signIn(data.email, data.password)
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch(error => {
+        console.error(error)
+        setLoginError(error.message)
+      });
+  }
+
   return (
-    <div className="flex flex-col max-w-md p-6 border rounded-md mx-auto sm:p-10  my-20">
+    <div className="flex flex-col max-w-md p-6 border rounded-md mx-auto sm:p-10 my-20">
       <div className="mb-8 text-center">
         <h1 className="my-3 text-4xl font-bold">Log in</h1>
       </div>
-      <form className="space-y-12 ng-untouched ng-pristine ng-valid">
-        <div className="space-y-4">
+      <form className="ng-untouched ng-pristine ng-valid" onSubmit={handleSubmit(handleLogin)}>
+        <div className="">
           <div>
             <label for="email" className="block mb-2 text-sm">Email</label>
-            <input type="email" name="email" id="email" placeholder="" className="w-full px-3 py-2 border rounded-md" required />
+            <input {...register("email", {
+              required: 'Please provide an email'
+            })}
+              type='email'
+              className="w-full px-3 py-2 border rounded-md" required />
+            {errors.email && <p className='text-red-700'>{errors.email?.message}</p>}
           </div>
           <div>
             <div className="flex justify-between mb-2">
               <label for="password" className="text-sm">Password</label>
             </div>
-            <input type="password" name="password" id="password" placeholder="" className="w-full px-3 py-2 border rounded-md" required />
+            <input {...register("password", {
+              required: 'Please provide a password',
+              minLength: { value: 6, message: "Password must be 6 characters" }
+            })}
+              type='password'
+              className="w-full px-3 py-2 border rounded-md" required />
+            {errors.password && <p className='text-red-700'>{errors.password?.message}</p>}
           </div>
-          <br />
-          <p className='text-red-700'>{ }</p>
+          <Link className="label mb-3"><span className="label-text"><small>Forget Password?</small></span></Link>
+          <div>
+            {loginError && <p className='text-red-700'>{loginError}</p>}
+          </div>
         </div>
         <div className="space-y-2">
-          <div>
-            <button type="submit" className="w-full px-8 py-3 font-semibold rounded-md bg-primary text-white">Sign in</button>
-          </div>
+          <input type="submit" value='Login' className="w-full px-8 py-3 font-semibold rounded-md bg-primary text-white" />
           <div className='flex items-center w-full my-3'>
             <hr className='w-full dark:text-gray-400' />
             <p>OR</p>
