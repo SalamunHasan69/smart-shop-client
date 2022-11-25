@@ -3,6 +3,7 @@ import Main from "../Layout/Main";
 import Blog from "../Pages/Blog/Blog";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
+import Products from "../Pages/Home/Products";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Signup/Signup";
 
@@ -32,6 +33,11 @@ export const router = createBrowserRouter([
         path: '/blog',
         element: <Blog></Blog>
       },
+      {
+        path: '/products/:id',
+        element: <Products></Products>,
+        loader: ({ params }) => fetch(`data.json/${params.id}`)
+      }
     ]
   }
 ])

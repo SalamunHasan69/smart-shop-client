@@ -57,15 +57,15 @@ const Signup = () => {
             {errors.password && <p className='text-red-700'>{errors.password?.message}</p>}
           </div>
         </div>
-        <div className="mt-10">
-          <div>
-            <div className='flex justify-start'>
+        <div className="mt-6">
+          <div className='flex justify-start'>
+            {/* <div className='flex justify-start'>
               <label for="using" className="text-sm mr-2">User</label>
-              <input type="radio" name="radio-2" className="radio radio-primary" checked />
-            </div>
-            <div className='flex justify-start my-2'>
+              <input type="radio" name="radio-3" className="radio radio-primary" />
+            </div> */}
+            <div className='flex justify-start mr-2'>
               <label for="buying" className="text-sm mr-2">Buyer</label>
-              <input type="radio" name="radio-2" className="radio radio-primary" />
+              <input type="radio" name="radio-2" className="radio radio-primary" checked />
             </div>
             <div className='flex justify-start'>
               <label for="selling" className="text-sm mr-2">Seller</label>
