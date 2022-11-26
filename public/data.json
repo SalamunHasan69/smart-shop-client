@@ -2,85 +2,16 @@
   {
     "id": "01",
     "img": "https://fdn.gsmarena.com/imgroot/news/20/10/iphone-12-what-to-expect/inline/-1200/gsmarena_004.jpg",
-    "title": "iPhone",
-    "product": [
-      {
-        "image": "https://www.apple.com/newsroom/images/product/iphone/standard/iPhone_XR_blue-back_09122018_carousel.jpg.large.jpg",
-        "pTitle": "iPhone XR",
-        "location": "Dhaka, Bangladesh",
-        "price": "33,000",
-        "market-price": "85,000",
-        "use": "15 Month",
-        "post-time": "22/11/2022",
-        "name": "Salamun",
-        "verified": ""
-      },
-      {
-        "image": "https://www.gizmochina.com/wp-content/uploads/2019/09/Apple-iPhone-11-Pro.jpg",
-        "pTitle": "iPhone 11 Pro",
-        "location": "Khulna, Bangladesh",
-        "price": "59,000",
-        "market-price": "134,999",
-        "use": "13 Month",
-        "post-time": "13/11/2022",
-        "name": "Hasan"
-      }
-    ]
+    "title": "iPhone"
   },
   {
     "id": "02",
     "img": "https://cdn.forbes.com.mx/2021/03/samsung_galaxya52.jpg",
-    "title": "Samsung",
-    "product": [
-      {
-        "image": "https://www.mobiledokan.com/wp-content/uploads/2019/03/Samsung-Galaxy-S10-Black.jpg",
-        "pTitle": "Samsung Galaxy S10",
-        "location": "Dhaka, Bangladesh",
-        "price": "23,500",
-        "market-price": "89,900",
-        "use": "11 Month",
-        "post-time": "11/11/2022",
-        "name": "Salamun",
-        "verified": ""
-      },
-      {
-        "image": "https://images.samsung.com/my/smartphones/galaxy-note10/buy/m-img-note10-aurapink-01.png",
-        "pTitle": "Samsung Galaxy Note10",
-        "location": "Jashore, Khulna, Bangladesh",
-        "price": "27,000",
-        "market-price": "87,000",
-        "use": "16 Month",
-        "post-time": "09/07/2022",
-        "name": "Hasan"
-      }
-    ]
+    "title": "Samsung"
   },
   {
     "id": "03",
     "img": "https://i.insider.com/627abdb9c1076b00183d4feb?width=700",
-    "title": "Google Pixel",
-    "product": [
-      {
-        "image": "https://www.mobiledokan.com/wp-content/uploads/2019/09/Google-Pixel-3a.jpg",
-        "pTitle": "Google Pixel 3XL",
-        "location": "Dhaka, Bangladesh",
-        "price": "18,000",
-        "market-price": "30,000",
-        "use": "6 Month",
-        "post-time": "07/05/2022",
-        "name": "Salamun",
-        "verified": ""
-      },
-      {
-        "image": "https://www.mobiledokan.com/wp-content/uploads/2019/10/Google-Pixel-4-orange.jpg",
-        "pTitle": "Google Pixel 4a",
-        "location": "Jashore, Khulna, Bangladesh",
-        "price": "22,500",
-        "market-price": "34,000",
-        "use": "8 Month",
-        "post-time": "15/05/2022",
-        "name": "Hasan"
-      }
-    ]
+    "title": "Google Pixel"
   }
 ]

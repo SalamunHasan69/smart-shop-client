@@ -1,15 +1,24 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import ProductsCard from './ProductsCard';
 
 const Products = () => {
 
-  const { image, pTitle, location } = useLoaderData();
+  const [products, setProducts] = useState();
+
+  useEffect(() => {
+    fetch('product.json')
+      .then(res => res.json())
+      .then(data => setProducts(data))
+  }, []);
 
   return (
     <div>
-      {image}
-      {pTitle}
-      {location}
+      {
+        products?.map(product => <ProductsCard
+          key={product.id}
+          product={product}
+        ></ProductsCard>)
+      }
     </div>
   );
 };
