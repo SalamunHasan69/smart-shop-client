@@ -14,11 +14,10 @@ const Dashboard = () => {
         </div>
         <div className="drawer-side">
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-          <ul className="menu my-6 p-4 w-80 bg-base-100 text-base-content">
+          <ul className="menu  p-4 w-80 bg-base-100 text-base-content">
             <li className='font-bold text-xl'><Link to=''>My Orders</Link></li>
             <li><Link to=''></Link></li>
           </ul>
-
         </div>
       </div>
       <Footer></Footer>

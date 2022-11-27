@@ -1,17 +1,27 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import CategoryCard from './CategoryCard';
 
 const Categories = () => {
 
-  const [categories, setCategories] = useState([]);
+  // const [categories, setCategories] = useState([]);
   const products = useLoaderData([])
 
-  useEffect(() => {
-    fetch('http://localhost:5000/categories')
-      .then(res => res.json())
-      .then(data => setCategories(data))
-  });
+  const { data: categories = [] } = useQuery({
+    queryKey: ['categories'],
+    queryFn: async () => {
+      const res = await fetch('http://localhost:5000/categories');
+      const data = await res.json();
+      return data;
+    }
+  })
+
+  // useEffect(() => {
+  //   fetch('http://localhost:5000/categories')
+  //     .then(res => res.json())
+  //     .then(data => setCategories(data))
+  // });
 
   return (
     <div>

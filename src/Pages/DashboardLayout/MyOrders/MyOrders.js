@@ -3,7 +3,7 @@ import React from 'react';
 const MyOrders = () => {
   return (
     <div>
-      <h3 className='text-3xl my-6'>My Orders</h3>
+      <h3 className='text-3xl my-4'>My Orders</h3>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>

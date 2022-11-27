@@ -2,7 +2,7 @@ import React from 'react';
 import { FaCheckCircle } from "react-icons/fa";
 
 
-const Product = ({ product }) => {
+const Product = ({ product, setBookingProduct }) => {
 
   const { name, postTime, location, image, pTitle, price, marketPrice, use } = product;
 
@@ -24,7 +24,7 @@ const Product = ({ product }) => {
         <p className='mb-2'>{use} used</p>
         <small className='font-bold'>Market price: {marketPrice}</small>
       </div>
-      <button className="btn btn-primary">Book now</button>
+      <label onClick={() => setBookingProduct(product)} htmlFor="book-now" className="btn btn-primary">Book now</label>
     </div>
   );
 };
