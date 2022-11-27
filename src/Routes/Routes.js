@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Dashboard from "../Layout/Dashboard";
 import Main from "../Layout/Main";
 import Blog from "../Pages/Blog/Blog";
-import DashboardLayout from "../Pages/DashboardLayout/DashboardLayout/DashboardLayout";
 import MyOrders from "../Pages/DashboardLayout/MyOrders/MyOrders";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
@@ -40,7 +39,7 @@ export const router = createBrowserRouter([
       {
         path: '/products/:id',
         element: <ProductsCard></ProductsCard>,
-        loader: ({ params }) => fetch(`product.json/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
       }
     ]
   },

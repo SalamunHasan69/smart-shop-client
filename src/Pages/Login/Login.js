@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Context/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
 
@@ -22,6 +23,17 @@ const Login = () => {
         console.error(error)
         setLoginError(error.message)
       });
+  }
+
+  const { providerLogin } = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider()
+  const handleGoogleLogin = () => {
+    providerLogin(googleProvider)
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch(error => console.error(error))
   }
 
   return (
@@ -64,7 +76,7 @@ const Login = () => {
             <p>OR</p>
             <hr className="w-full dark:text-gray-400" />
           </div>
-          <button type="button" className="flex items-center justify-center w-full p-3 space-x-4 border rounded-md btn btn-outline btn-primary">
+          <button onClick={handleGoogleLogin} type="button" className="flex items-center justify-center w-full p-3 space-x-4 border rounded-md btn btn-outline btn-primary">
             <FaGoogle></FaGoogle>
             <p>Login with Google</p>
           </button>

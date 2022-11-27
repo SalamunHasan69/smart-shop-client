@@ -3,13 +3,11 @@ import { useLoaderData } from 'react-router-dom';
 
 const ProductsCard = () => {
 
-  const { image, pTitle, location } = useLoaderData();
+  const products = useLoaderData();
 
   return (
     <div>
-      <img src={image} alt="" />
-      <h3>{pTitle}</h3>
-      <p>{location}</p>
+      <h2>All products: {products.length}</h2>
     </div>
   );
 };

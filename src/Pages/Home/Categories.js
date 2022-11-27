@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import CategoryCard from './CategoryCard';
 
 const Categories = () => {
 
   const [categories, setCategories] = useState([]);
+  const products = useLoaderData([])
 
   useEffect(() => {
-    fetch('data.json')
+    fetch('http://localhost:5000/categories')
       .then(res => res.json())
       .then(data => setCategories(data))
   });
@@ -17,8 +19,9 @@ const Categories = () => {
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
         {
           categories.map(category => <CategoryCard
-            key={category.id}
+            key={category._id}
             category={category}
+            products={products}
           ></CategoryCard>)
         }
       </div>
