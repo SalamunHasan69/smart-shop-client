@@ -1,12 +1,10 @@
 import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FaArrowRight } from "react-icons/fa";
 
-const CategoryCard = ({ category, products }) => {
+const CategoryCard = ({ category }) => {
 
-  const { id, img, title } = category;
-  // const { id } = products;
-
+  const { c_id, img, title } = category;
 
   return (
     <div className="max-w-lg p-4 shadow-md bg-blue-100">
@@ -17,13 +15,7 @@ const CategoryCard = ({ category, products }) => {
       </div>
       <div className="space-y-2 mt-4 flex justify-between items-center">
         <h3 className="mb-0 capitalize text-3xl">{title}</h3>
-        {/* {
-          products.map(product =>
-            <Link to={`/product/${c_id}`} className='text-primary text-2xl font-bold' >
-              <FaArrowRight></FaArrowRight>
-            </Link>)
-        } */}
-        <Link to={`products/${id}`} className='text-primary text-2xl font-bold' >
+        <Link to={`/products/${c_id}`} className='text-primary text-2xl font-bold' >
           <FaArrowRight></FaArrowRight>
         </Link>
       </div>

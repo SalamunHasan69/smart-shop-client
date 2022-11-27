@@ -1,16 +1,16 @@
 [
   {
-    "id": "01",
+    "c_id": "01",
     "img": "https://fdn.gsmarena.com/imgroot/news/20/10/iphone-12-what-to-expect/inline/-1200/gsmarena_004.jpg",
     "title": "iPhone"
   },
   {
-    "id": "02",
+    "c_id": "02",
     "img": "https://cdn.forbes.com.mx/2021/03/samsung_galaxya52.jpg",
     "title": "Samsung"
   },
   {
-    "id": "03",
+    "c_id": "03",
     "img": "https://i.insider.com/627abdb9c1076b00183d4feb?width=700",
     "title": "Google Pixel"
   }

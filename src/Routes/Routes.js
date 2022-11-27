@@ -5,10 +5,10 @@ import Blog from "../Pages/Blog/Blog";
 import MyOrders from "../Pages/DashboardLayout/MyOrders/MyOrders";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
-import Products from "../Pages/Home/Products";
 import ProductsCard from "../Pages/Home/ProductsCard";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Signup/Signup";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -38,7 +38,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/products/:id',
-        element: <ProductsCard></ProductsCard>,
+        element: <PrivateRoute><ProductsCard></ProductsCard></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
       }
     ]
