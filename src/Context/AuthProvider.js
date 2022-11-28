@@ -9,7 +9,7 @@ const auth = getAuth(app)
 const AuthProvider = ({ children }) => {
 
   const [user, setUser] = useState(null);
-  const [Loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -40,7 +40,7 @@ const AuthProvider = ({ children }) => {
     return () => unSubscribe();
   })
 
-  const authInfo = { user, createUser, signIn, logout, providerLogin, Loading }
+  const authInfo = { user, createUser, signIn, logout, providerLogin, loading }
 
   return (
     <AuthContext.Provider value={authInfo}>

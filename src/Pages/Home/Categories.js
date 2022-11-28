@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Loading from '../Shared/Loading';
 import CategoryCard from './CategoryCard';
 
 const Categories = () => {
@@ -8,14 +9,18 @@ const Categories = () => {
   // const [categories, setCategories] = useState([]);
   const products = useLoaderData([])
 
-  const { data: categories = [] } = useQuery({
+  const { data: categories = [], isLoading } = useQuery({
     queryKey: ['categories'],
     queryFn: async () => {
       const res = await fetch('https://smart-shop-server-salamunhasan69.vercel.app/categories');
       const data = await res.json();
       return data;
     }
-  })
+  });
+
+  if (isLoading) {
+    return <Loading></Loading>
+  }
 
   // useEffect(() => {
   //   fetch('https://smart-shop-server-salamunhasan69.vercel.app/categories')
