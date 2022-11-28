@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const BookNow = ({ bookingProduct, setBookingProduct }) => {
-  const { pTitle, price } = bookingProduct;
+  const { pTitle, price, image } = bookingProduct;
   const { user } = useContext(AuthContext);
   // console.log(user);
+  const navigate = useNavigate();
 
   const handleBooking = event => {
     event.preventDefault();
@@ -17,13 +19,14 @@ const BookNow = ({ bookingProduct, setBookingProduct }) => {
     const location = form.location.value;
     const phone = form.phone.value;
 
-    const booking = {
+    const bookings = {
       name,
       email,
       pTitle,
       price,
       location,
       phone,
+      image
     }
 
     fetch('https://smart-shop-server-salamunhasan69.vercel.app/bookings', {
@@ -31,7 +34,7 @@ const BookNow = ({ bookingProduct, setBookingProduct }) => {
       headers: {
         'content-type': 'application/json'
       },
-      body: JSON.stringify(booking)
+      body: JSON.stringify(bookings)
     })
 
       .then(res => res.json())
@@ -39,7 +42,8 @@ const BookNow = ({ bookingProduct, setBookingProduct }) => {
         console.log(data);
         if (data.acknowledged) {
           setBookingProduct(null);
-          toast.success(`${pTitle} is booked`)
+          toast.success(`${pTitle} is booked`);
+          navigate('/dashboard');
         }
       });
 

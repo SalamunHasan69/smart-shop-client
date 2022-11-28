@@ -15,14 +15,14 @@ const MyOrders = () => {
       return data;
     }
   })
-
+  console.log(bookings);
   return (
     <div>
       <h3 className='text-3xl my-4'>My Orders</h3>
       <div className='grid lg:grid-cols-3 gap-4 mx-auto'>
         {
           bookings.map((booking, i) => <div key={i} className="max-w-xs rounded-md shadow-md bg-blue-100">
-            <img src={booking.image} alt="" className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" />
+            <img src={booking.image} alt="" className="object-cover object-center w-full rounded-t-md h-[60%] dark:bg-gray-500" />
             <div className="flex flex-col justify-between p-6 space-y-8">
               <div className="space-y-2">
                 <h2 className="text-xl font-semibold tracking-wide text-black">{booking.pTitle}</h2>

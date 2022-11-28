@@ -31,7 +31,7 @@ const Signup = () => {
         <div>
           <div>
             <label for="name" className="block mb-2 text-sm">Name</label>
-            <input {...register("Name", {
+            <input {...register("name", {
               required: 'Please provide your name'
             })}
               type='text'
