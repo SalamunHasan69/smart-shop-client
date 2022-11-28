@@ -6,7 +6,7 @@ import { AuthContext } from '../../Context/AuthProvider';
 const BookNow = ({ bookingProduct, setBookingProduct }) => {
   const { pTitle, price, image } = bookingProduct;
   const { user } = useContext(AuthContext);
-  // console.log(user);
+  console.log(user);
   const navigate = useNavigate();
 
   const handleBooking = event => {

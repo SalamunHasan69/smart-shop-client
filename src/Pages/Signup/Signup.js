@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Context/AuthProvider';
@@ -7,19 +7,30 @@ import toast from 'react-hot-toast';
 const Signup = () => {
 
   const { register, formState: { errors }, handleSubmit } = useForm();
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUser } = useContext(AuthContext);
+  const [signUpError, setSignUpError] = useState('')
   const navigate = useNavigate();
 
   const handleSignup = data => {
     console.log(data);
+    setSignUpError('')
     createUser(data.email, data.password)
       .then(result => {
         const user = result.user;
         console.log(user);
+        const userInfo = {
+          displayName: data.name
+        }
         toast.success('User created successfully')
         navigate('/')
+        updateUser(userInfo)
+          .then(() => { })
+          .catch(error => console.error(error))
       })
-      .catch(error => console.error(error));
+      .catch(error => {
+        console.error(error)
+        setSignUpError(error.message)
+      });
   };
 
   return (
@@ -75,6 +86,7 @@ const Signup = () => {
               <input type="radio" name="radio-2" className="radio radio-primary" />
             </div>
           </div>
+          {signUpError && <p className='text-red-700'>{signUpError}</p>}
           <input type="submit" value='Sign up' className="w-full mt-2 px-8 py-3 font-semibold rounded-md bg-primary text-white" />
           <p className="mt-2 text-sm text-center dark:text-gray-400">Already have an account?
             <Link to='/login' className="hover:underline dark:text-primary"> Login</Link>
