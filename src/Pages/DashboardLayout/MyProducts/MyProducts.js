@@ -7,7 +7,7 @@ const MyProducts = () => {
     queryKey: ['addProduct'],
     queryFn: async () => {
       try {
-        const res = await fetch('http://localhost:5000/addProduct', {
+        const res = await fetch('https://smart-shop-server.vercel.app/addProduct', {
           headers: {
             authorization: `bearer ${localStorage.getItem('accessToken')}`
           }

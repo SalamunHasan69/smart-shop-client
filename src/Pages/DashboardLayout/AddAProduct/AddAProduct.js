@@ -37,7 +37,7 @@ const AddAProduct = () => {
             image: data.image
           }
 
-          fetch('http://localhost:5000/addProduct', {
+          fetch('https://smart-shop-server.vercel.app/addProduct', {
             method: 'POST',
             headers: {
               'content-type': 'application/json',
