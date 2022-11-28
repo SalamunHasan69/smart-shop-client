@@ -39,7 +39,7 @@ export const router = createBrowserRouter([
       {
         path: '/products/:id',
         element: <PrivateRoute><ProductsCard></ProductsCard></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
+        loader: ({ params }) => fetch(`https://smart-shop-server-salamunhasan69.vercel.app/products/${params.id}`)
       }
     ]
   },

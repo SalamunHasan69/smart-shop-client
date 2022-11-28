@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Context/AuthProvider';
 
@@ -9,12 +9,15 @@ const Signup = () => {
 
   const { createUser } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+
   const handleSignup = data => {
     console.log(data);
     createUser(data.email, data.password)
       .then(result => {
         const user = result.user;
         console.log(user);
+        navigate('/')
       })
       .catch(error => console.error(error));
   };
